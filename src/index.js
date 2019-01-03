@@ -8,26 +8,28 @@ import './index.css';
 // The default locale is en-US, but we can change it to other language
 
 const { Header, Content } = Layout;
-const INITIAL_DATA = 'The square of the hypotenuse is equal to the sum of the squares of the other two sides';
+const INITIAL_DATA = 'Scroll down to add your own block! ';
 var blockIndex = 0;
 var prevHash = 0;
+
+const ButtonGroup = Button.Group;
 
 const Step = Steps.Step;
 const steps = [{
   title: 'Blockchain',
-  content: 'A blockchain has a list of blocks. It starts with a single block, called the genesis block.',
+  content: 'A blockchain is a list of blocks linked together. It all starts with the first block, called the genesis block.',
 }, {
   title: 'Block',
-  content: 'Each block stores the following information: Index,Timestamp, Hash, Previous Hash, Data',
+  content: 'Each block stores information: Index, Timestamp, Hash, Previous Hash, Data',
 }, {
   title: 'Index',
-  content: 'The index is the position of the block in the chain. The genesis block has an index of 0. The next block will have an index of 1.',
+  content: 'The index is the position of the block in the greater chain. For example, the genesis block has an index of 0. The next block will have an index of 1.',
 }, {
   title: 'Timestamp',
-  content: 'A record of when the block was created. The timestamp helps to keep the blockchain in order.'
+  content: 'The timestamp gives the exact time in which the block was created and the data was stored.'
 }, {
   title: 'Hash',
-  content: 'A hash looks like a bunch of random numbers and letters. It is a alphanumeric value that uniquely identifies data, or the "digital fingerprint" of data.'
+  content: 'A hash is the digital fingerprint of the data. It is a alphanumeric value that uniquely identifies data. Each block knows its own hash, and the hash of the previous block.'
 }];
 
 class App extends React.Component {
@@ -49,7 +51,8 @@ class App extends React.Component {
       //This specific value variable should only be used to identify
       //the input field in the add blockchain form
       value: '',
-      current: 0
+      current: 0,
+      //// TODO: Undo false
     };
     prevHash = newHash;
     this.handleChange = this.handleChange.bind(this);
@@ -99,83 +102,100 @@ class App extends React.Component {
     this.setState({ current });
   }
 
-
   render() {
     const { current } = this.state;
     return (
       <React.Fragment>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{margin: '10px 10px'}}>
+              <ButtonGroup>
+                <Button disabled='true' style={{background: 'white', color: 'black'}}> Share the love </Button>
+                <Button  icon="mail" />
+                <Button  icon="facebook" />
+                <Button  icon="linkedin" />
+                <Button  icon="twitter" />
+                <Button  icon="google-plus" />
+              </ButtonGroup>
+            </div>
+            <div style={{margin: '10px 10px', align: 'right'}}>
+              <ButtonGroup>
+
+                <Button  icon="mail" />
+                <Button  icon="linkedin" />
+                <Button  icon="user" />
+                <Button disabled='true' style={{background: 'white', color: 'black'}}> Contact Me </Button>
+              </ButtonGroup>
+            </div>
+          </div>
+
+
         <Header style={{ background: 'rgb(256,256,256)'}}>
-          <div style={{textAlign: 'center', margin: '20px'}}>
-            <div style={{display: 'inline-block'}}>
-              <h1>
-
-                <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" />
-                <span> BUILD-A-BLOCKCHAIN </span>
-                <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" />
-
-              </h1> <br/>
+          <div style={{textAlign: 'center', margin: '20px auto'}}>
+            <div style={{ margin: '10px', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                <span>
+                  <h2>
+                  <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" />
+                   BUILD-A-BLOCKCHAIN
+                  <Icon type="heart" theme="twoTone" twoToneColor="#eb2f96" />
+                  </h2>
+                </span>
+               <br/>
             </div>
           </div>
         </Header>
-        <Content style = {{ padding: '30px 50px' }}>
-        <div>
-          <Steps current={current}>
-            {steps.map(item => <Step key={item.title} title={item.title} />)}
-            </Steps>
-            <div className="steps-content">{steps[current].content}</div>
-            <div className="steps-action">
-              {
-                current < steps.length - 1
-                && <Button type="primary" onClick={() => this.next()}>Next</Button>
-              }
-              {
-                current === steps.length - 1
-                && <Button type="primary" onClick={() => message.success('Processing complete!')}>Done</Button>
-              }
-              {
-                current > 0
-                && (
-                <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
-                  Previous
-                </Button>
-                )
-              }
-            </div>
-          </div>
-
+        <Content style = {{ padding: '30px 30px' }}>
           <div>
+            <Steps current={current}>
+              {steps.map(item => <Step key={item.title} title={item.title} />)}
+              </Steps>
+              <div className="steps-content">{steps[current].content}</div>
+              <div className="steps-action">
+                {
+                  current < steps.length - 1
+                  && <Button type="primary" onClick={() => this.next()}>Next</Button>
+                }
+                {
+                  current === steps.length - 1
+                  && <Button type="primary" onClick={() => message.success('Scroll down to the Blockchain!')}>Done</Button>
+                }
+                {
+                  current > 0
+                  && (
+                  <Button style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+                    Previous
+                  </Button>
+                  )
+                }
+              </div>
+            </div>
+
+
             <div style={{ margin: '10px auto' }}>
-              <div style={{textAlign: 'center'}}>
-                <div style={{ display: 'inline-block'}}>
-                  <p style={{fontStyle: 'italic'}}> "A healthy blockchain is a growing blockchain!" <br/>
-                  -<a href='https://tomjoshi.com/'>Sateshi Nakemati </a>
-                  </p>
+                <div style={{textAlign: 'center'}}>
+                  <div style={{ display: 'inline-block'}}>
+                    <h1>
+                      <u>THE BLOCKCHAIN</u>
+                    </h1>
+                  </div>
                 </div>
+                <Blockchain entries={this.state.items}/>
               </div>
 
-              <Blockchain entries={this.state.items}/>
+            <div style={{ width: '60%', margin: '10px auto' }}>
+              <Card hoverable = "true">
+                <Form onSubmit={this.handleSubmit} className="add-block-form">
+                  <Form.Item>
+                    <Input placeholder='Type random stuff here!'type="text" value={this.state.value} onChange={this.handleChange} addonBefore={'Data'} prefix={<Icon type="file" style={{ color: 'rgba(0,0,0,.25)' }} />} />
+                  </Form.Item>
 
-
+                  <Form.Item>
+                    <Button type="primary" htmlType="submit" className="add-new-block-form-button" style={{ width:'100%'}}>
+                        + ADD BLOCK
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </Card>
             </div>
-
-
-          </div>
-
-          <div style={{ width: '60%', margin: '30px auto' }}>
-            <Card hoverable = "true">
-              <Form onSubmit={this.handleSubmit} className="add-block-form">
-                <Form.Item>
-                  <Input type="text" value={this.state.value} onChange={this.handleChange} addonBefore={'Data'} prefix={<Icon type="file" style={{ color: 'rgba(0,0,0,.25)' }} />} />
-                </Form.Item>
-
-                <Form.Item>
-                  <Button type="primary" htmlType="submit" className="add-new-block-form-button" style={{ width:'100%'}}>
-                      + ADD BLOCK
-                  </Button>
-                </Form.Item>
-              </Form>
-            </Card>
-          </div>
         </Content>
       </React.Fragment>
     );
