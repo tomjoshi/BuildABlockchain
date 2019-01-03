@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Card, Button, Icon, Layout, Form, Input, Steps, message } from 'antd';
+import { Card, Button, Icon, Layout, Form, Input, Steps, message, Modal } from 'antd';
 import Blockchain from './Blockchain.js';
 import sha256 from 'crypto-js/sha256';
 import 'antd/dist/antd.css';        // for css
@@ -53,6 +53,7 @@ class App extends React.Component {
       value: '',
       current: 0,
       //// TODO: Undo false
+      visible: true
     };
     prevHash = newHash;
     this.handleChange = this.handleChange.bind(this);
@@ -100,6 +101,26 @@ class App extends React.Component {
   prev() {
     const current = this.state.current - 1;
     this.setState({ current });
+  }
+
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  }
+
+  handleOk = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  }
+
+  handleCancel = (e) => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
   }
 
   render() {
@@ -196,6 +217,16 @@ class App extends React.Component {
                 </Form>
               </Card>
             </div>
+
+            <Modal
+              title="Welcome to Build-A-Blockchain!"
+              visible={this.state.visible}
+              onOk={this.handleOk}
+              onCancel={this.handleCancel}
+            >
+              <p>We are here to give you basic knowledge about the Blockchain <i> and </i>
+              to help you visualize the Blockchain. Click ok to continue! </p>
+        </Modal>
         </Content>
       </React.Fragment>
     );
