@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Card, Button, Icon, Layout, Form, Input, Steps, message, Modal } from 'antd';
+import ReactGA from 'react-ga';
 import Blockchain from './Blockchain.js';
 import sha256 from 'crypto-js/sha256';
 import 'antd/dist/antd.css';        // for css
 import './index.css';
 // The default locale is en-US, but we can change it to other language
+
+ReactGA.initialize('UA-131729774-1');
+ReactGA.pageview('/homepage');
 
 const { Header, Content } = Layout;
 const INITIAL_DATA = 'Scroll down to add your own block! ';
@@ -130,20 +134,23 @@ class App extends React.Component {
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <div style={{margin: '10px 10px'}}>
               <ButtonGroup>
-                <Button disabled='true' style={{background: 'white', color: 'black'}}> Share the love </Button>
-                <Button  icon="mail" />
-                <Button  icon="facebook" />
-                <Button  icon="linkedin" />
-                <Button  icon="twitter" />
-                <Button  icon="google-plus" />
+                <Button disabled='true' style={{background: 'white', color: 'black'}}> Share with friends </Button>
+                {
+                  //TODO: Change link
+                }
+                <Button icon="mail" href="mailto:?subject=Build-A-Blockchain: Visualize the Blockchain technology&body=Check out this site! https://buildablockchain.tech"/>
+                <Button icon="facebook" href="https://www.facebook.com/sharer/sharer.php?u=#url" />
+                <Button icon="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://buildablockchain.tech&title=Blockchain%20Visualization&summary=Visualization%20of%20Blockchain%20technologies&source=TomJoshi"/>
+                <Button icon="twitter" href="https://twitter.com/share?url=https://buildablockchain.tech&via=tomjoshi2&hashtags=Blockchain%2CEducation%2CDemo%2CLearn&text=Blockchain%20Demo%20-%20Visualize%20Blockchain%20technologies"/>
+                <Button icon="google-plus" href="https://plus.google.com/share?url=https://buildablockchain.tech"/>
               </ButtonGroup>
             </div>
             <div style={{margin: '10px 10px', align: 'right'}}>
               <ButtonGroup>
 
-                <Button  icon="mail" />
-                <Button  icon="linkedin" />
-                <Button  icon="user" />
+                <Button  icon="mail" href="mailto:buildablockchain@gmail.com"/>
+                <Button  icon="linkedin" href="https://www.linkedin.com/in/tom-joshi-32334912a/" />
+                <Button  icon="user" href="https://tomjoshi.com/" />
                 <Button disabled='true' style={{background: 'white', color: 'black'}}> Contact Me </Button>
               </ButtonGroup>
             </div>
@@ -219,13 +226,13 @@ class App extends React.Component {
             </div>
 
             <Modal
-              title="Welcome to Build-A-Blockchain!"
+              title="Welcome to Build A Blockchain!"
               visible={this.state.visible}
               onOk={this.handleOk}
               onCancel={this.handleCancel}
             >
-              <p>We are here to give you basic knowledge about the Blockchain <i> and </i>
-              to help you visualize the Blockchain. Click ok to continue! </p>
+              <p><i>We are here to help you visualize the Blockchain and
+              to give you basic knowledge about Blockchain technologies. Click OK to continue! </i></p>
         </Modal>
         </Content>
       </React.Fragment>
