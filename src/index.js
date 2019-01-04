@@ -226,7 +226,7 @@ class App extends React.Component {
             </div>
 
             <Modal
-              title="Welcome to Build A Blockchain!"
+              title="Welcome to Build-A-Blockchain!"
               visible={this.state.visible}
               onOk={this.handleOk}
               onCancel={this.handleCancel}
