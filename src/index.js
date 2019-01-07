@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Card, Button, Icon, Layout, Form, Input, Steps, message, Modal } from 'antd';
+import {Helmet} from "react-helmet";
+import ScreenShot from './ScreenShot.png';
+import favicon from './favicon.ico';
 import Blockchain from './Blockchain.js';
 import sha256 from 'crypto-js/sha256';
 import 'antd/dist/antd.css';        // for css
@@ -128,6 +131,26 @@ class App extends React.Component {
     return (
 
       <React.Fragment>
+        <Helmet>
+          <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+          <link rel="shortcut icon" href={favicon} />
+
+          <title>Build-A-Blockchain</title>
+          <meta name="Description" content="Visualize the blockchain technology!" />
+
+          <meta name="twitter:card" content="summary"/>
+          <meta name="twitter:site" content="@TomJoshi2"/>
+          <meta name="twitter:creator" content="@TomJoshi2"/>
+          <meta name="twitter:title" content="Build-A-Blockchain "/>
+          <meta name="twitter:description" content="Visualize the blockchain technology!"/>
+
+          <meta property="og:url" content="http://buildablockchain.tech"/>
+          <meta property="og:type" content="website"/>
+          <meta property="og:title" content="Build-A-Blockchain"/>
+          <meta property="og:description" content="Visualize the blockchain technology!"/>
+          <meta property='og:image' content={ScreenShot}/>
+        </Helmet>
+
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <div style={{margin: '10px 10px'}}>
               <ButtonGroup>
