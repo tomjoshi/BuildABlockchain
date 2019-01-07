@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Card, Button, Icon, Layout, Form, Input, Steps, message, Modal } from 'antd';
 import ReactGA from 'react-ga';
 import Blockchain from './Blockchain.js';
+import {Helmet} from "react-helmet";
 import sha256 from 'crypto-js/sha256';
 import 'antd/dist/antd.css';        // for css
 import './index.css';
@@ -130,28 +131,37 @@ class App extends React.Component {
   render() {
     const { current } = this.state;
     return (
+
       <React.Fragment>
+        <Helmet>
+          <title>Build-A-Blockchain</title>
+          <meta name="description" content="Visualize the blockchain technology" />
+          <meta property="og:title" content="Build-A-Blockchain"/>
+          <meta property="og:description" content="Visualize the blockchain technology!"/>
+          <meta property="og:url" content="http://buildablockchain.tech"/>
+
+          <meta name="twitter:title" content="Build-A-Blockchain "/>
+          <meta name="twitter:description" content="Visualize the blockchain technology!"/>
+        </Helmet>
+
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <div style={{margin: '10px 10px'}}>
               <ButtonGroup>
-                <Button disabled='true' style={{background: 'white', color: 'black'}}> Share with friends </Button>
-                {
-                  //TODO: Change link
-                }
+                <Button disabled={true} style={{background: 'white', color: 'black'}}> Share with friends: </Button>
                 <Button icon="mail" href="mailto:?subject=Build-A-Blockchain: Visualize the Blockchain technology&body=Check out this site! https://buildablockchain.tech"/>
                 <Button icon="facebook" href="https://www.facebook.com/sharer/sharer.php?u=#url" />
-                <Button icon="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://buildablockchain.tech&title=Blockchain%20Visualization&summary=Visualization%20of%20Blockchain%20technologies&source=TomJoshi"/>
+                <Button icon="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=http://buildablockchain.tech/&title=Build-A-Blockchain
+&summary=Visualize%20the%20Blockchain%20technology&source=TomJoshi"/>
                 <Button icon="twitter" href="https://twitter.com/share?url=https://buildablockchain.tech&via=tomjoshi2&hashtags=Blockchain%2CEducation%2CDemo%2CLearn&text=Blockchain%20Demo%20-%20Visualize%20Blockchain%20technologies"/>
                 <Button icon="google-plus" href="https://plus.google.com/share?url=https://buildablockchain.tech"/>
               </ButtonGroup>
             </div>
             <div style={{margin: '10px 10px', align: 'right'}}>
               <ButtonGroup>
-
+                <Button disabled='true' style={{background: 'white', color: 'black'}}> Contact Me: </Button>
                 <Button  icon="mail" href="mailto:buildablockchain@gmail.com"/>
                 <Button  icon="linkedin" href="https://www.linkedin.com/in/tom-joshi-32334912a/" />
-                <Button  icon="user" href="https://tomjoshi.com/" />
-                <Button disabled='true' style={{background: 'white', color: 'black'}}> Contact Me </Button>
+
               </ButtonGroup>
             </div>
           </div>
@@ -209,7 +219,7 @@ class App extends React.Component {
                 <Blockchain entries={this.state.items}/>
               </div>
 
-            <div style={{ width: '60%', margin: '10px auto' }}>
+            <div style={{ width: '80%', margin: '10px auto' }}>
               <Card hoverable = "true">
                 <Form onSubmit={this.handleSubmit} className="add-block-form">
                   <Form.Item>
