@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Card, Button, Icon, Layout, Form, Input, Steps, message, Modal } from 'antd';
-import ReactGA from 'react-ga';
 import Blockchain from './Blockchain.js';
 import sha256 from 'crypto-js/sha256';
 import 'antd/dist/antd.css';        // for css
 import './index.css';
 // The default locale is en-US, but we can change it to other language
-
-ReactGA.initialize('UA-131729774-1');
-ReactGA.pageview('/homepage');
 
 const { Header, Content } = Layout;
 const INITIAL_DATA = 'Scroll down to add your own block! ';
