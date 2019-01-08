@@ -22,3 +22,7 @@ h1 {
 .steps-action {
   margin-top: 24px;
 }
+
+.OrderButton:hover {
+  color: '#e74c3c';
+}

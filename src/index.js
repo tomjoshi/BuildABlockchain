@@ -141,7 +141,7 @@ class App extends React.Component {
           <meta name="twitter:card" content="summary"/>
           <meta name="twitter:site" content="@TomJoshi2"/>
           <meta name="twitter:creator" content="@TomJoshi2"/>
-          <meta name="twitter:title" content="Build-A-Blockchain "/>
+          <meta name="twitter:title" content="Build-A-Blockchain"/>
           <meta name="twitter:description" content="Visualize the blockchain technology!"/>
 
           <meta property="og:url" content="http://buildablockchain.tech"/>
@@ -151,23 +151,33 @@ class App extends React.Component {
           <meta property='og:image' content={ScreenShot}/>
         </Helmet>
 
+        <nav style={{position: 'sticky', top:'0'}}>
+          <div style={{textAlign: 'center', display:'flex', height: '40px', justifyContent: 'center', background: '#27ae60'}}>
+            <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', padding: '10px' }}>
+              <a style={{color: 'white'}} href="https://www.bonfire.com/build-a-blockchain/">CLICK HERE FOR BUILD-A-BLOCKCHAIN SHIRT</a>
+            </div>
+          </div>
+        </nav>
+
+
+
           <div style={{display: 'flex', justifyContent: 'center'}}>
             <div style={{margin: '10px 10px'}}>
               <ButtonGroup>
-                <Button disabled={true} style={{background: 'white', color: 'black'}}> Share with friends: </Button>
-                <Button icon="mail" href="mailto:?subject=Build-A-Blockchain: Visualize the Blockchain technology&body=Check out this site! https://buildablockchain.tech"/>
-                <Button icon="facebook" href="https://www.facebook.com/sharer/sharer.php?u=#url" />
-                <Button icon="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://buildablockchain.tech&title=Build-A-Blockchain&summary=Visualization%20of%20Blockchain%20technologies&source=TomJoshi"/>
-                <Button icon="twitter" href="https://twitter.com/share?url=https://buildablockchain.tech&via=tomjoshi2&hashtags=Blockchain%2CEducation%2CDemo%2CLearn&text=Blockchain%20Demo%20-%20Visualize%20Blockchain%20technologies"/>
-                <Button icon="google-plus" href="https://plus.google.com/share?url=https://buildablockchain.tech"/>
+                <Button disabled={true} style={{background: 'white', color: 'black'}}> Share: </Button>
+                <Button type="primary" icon="mail" href="mailto:?subject=Build-A-Blockchain: Visualize the Blockchain technology&body=Check out this site! https://buildablockchain.tech"/>
+                <Button type="primary" icon="facebook" href="https://www.facebook.com/sharer/sharer.php?u=#url" />
+                <Button type="primary" icon="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://buildablockchain.tech&title=Build-A-Blockchain&summary=Visualization%20of%20Blockchain%20technologies&source=TomJoshi"/>
+                <Button type="primary" icon="twitter" href="https://twitter.com/share?url=https://buildablockchain.tech&via=tomjoshi2&hashtags=Blockchain%2CEducation%2CDemo%2CLearn&text=Blockchain%20Demo%20-%20Visualize%20Blockchain%20technologies"/>
+                <Button type="primary" icon="google-plus" href="https://plus.google.com/share?url=https://buildablockchain.tech"/>
               </ButtonGroup>
             </div>
             <div style={{margin: '10px 10px', align: 'right'}}>
               <ButtonGroup>
-                <Button disabled='true' style={{background: 'white', color: 'black'}}> Contact Me: </Button>
-                <Button  icon="mail" href="mailto:buildablockchain@gmail.com"/>
-                <Button  icon="linkedin" href="https://www.linkedin.com/in/tom-joshi-32334912a/" />
-
+                <Button disabled='true' style={{background: 'white', color: 'black'}}> Contact: </Button>
+                <Button type="primary" icon="linkedin" href="https://www.linkedin.com/in/tom-joshi-32334912a/" />
+                <Button type="primary" icon="facebook" href="https://www.fb.me/buildablockchain" />
+                <Button type="primary" icon="mail" href="mailto:buildablockchain@gmail.com"/>
               </ButtonGroup>
             </div>
           </div>
@@ -187,7 +197,18 @@ class App extends React.Component {
             </div>
           </div>
         </Header>
-        <Content style = {{ padding: '30px 30px' }}>
+        <Content style = {{ padding: '10px 30px' }}>
+          <div style={{ margin: '10px auto' }}>
+            <div style={{textAlign: 'center'}}>
+              <div style={{ display: 'inline-block'}}>
+
+                <h3>
+                  <u>KEY TERMS</u>
+                </h3>
+
+              </div>
+            </div>
+          </div>
           <div>
             <Steps current={current}>
               {steps.map(item => <Step key={item.title} title={item.title} />)}
@@ -216,7 +237,8 @@ class App extends React.Component {
 
             <div style={{ margin: '10px auto' }}>
                 <div style={{textAlign: 'center'}}>
-                  <div style={{ display: 'inline-block'}}>
+                  <div  style={{ display: 'inline-block'}}>
+
                     <h1>
                       <u>THE BLOCKCHAIN</u>
                     </h1>
@@ -225,7 +247,7 @@ class App extends React.Component {
                 <Blockchain entries={this.state.items}/>
               </div>
 
-            <div style={{ width: '80%', margin: '10px auto' }}>
+            <div style={{ width: '80%', margin: '10px auto' }} name="add-block-form">
               <Card hoverable = "true">
                 <Form onSubmit={this.handleSubmit} className="add-block-form">
                   <Form.Item>
@@ -247,8 +269,7 @@ class App extends React.Component {
               onOk={this.handleOk}
               onCancel={this.handleCancel}
             >
-              <p><i>We are here to help you visualize the Blockchain and
-              to give you basic knowledge about Blockchain technologies. Click OK to continue! </i></p>
+              <p>Build-A-Blockchain is a super simple way for anyone to become familiar with the Blockchain technology by making their own basic Blockchain in a few seconds. Click OK to continue! </p>
         </Modal>
         </Content>
       </React.Fragment>
