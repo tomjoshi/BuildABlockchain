@@ -151,10 +151,10 @@ class App extends React.Component {
           <meta property='og:image' content={ScreenShot}/>
         </Helmet>
 
-        <nav style={{position: 'sticky', top:'0'}}>
-          <div style={{textAlign: 'center', display:'flex', height: '40px', justifyContent: 'center', background: '#27ae60'}}>
+        <nav style={{position: 'sticky', top:'0', zIndex: '1'}}>
+          <div style={{textAlign: 'center', display:'flex', height: '40px', justifyContent: 'center', background: '#16a085'}}>
             <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', padding: '10px' }}>
-              <a style={{color: 'white'}} href="https://www.bonfire.com/build-a-blockchain/">CLICK HERE FOR BUILD-A-BLOCKCHAIN SHIRT</a>
+              <a style={{color: 'white'}} href="https://www.bonfire.com/build-a-blockchain/"> ORDER THE BUILD-A-BLOCKCHAIN SHIRT HERE</a>
             </div>
           </div>
         </nav>
@@ -203,7 +203,7 @@ class App extends React.Component {
               <div style={{ display: 'inline-block'}}>
 
                 <h3>
-                  <u>KEY TERMS</u>
+                  <u>BACKGROUND INFO</u>
                 </h3>
 
               </div>
@@ -269,8 +269,9 @@ class App extends React.Component {
               onOk={this.handleOk}
               onCancel={this.handleCancel}
             >
-              <p>Build-A-Blockchain is a super simple way for anyone to become familiar with the Blockchain technology by making their own basic Blockchain in a few seconds. Click OK to continue! </p>
-        </Modal>
+              <p>Build-A-Blockchain is a super simple way for anyone to become familiar with the Blockchain technology by making their own basic Blockchain in a few seconds.</p>
+              <p>The first part introduces basic background information. The second part is where you get to play with the Blockchain!</p>
+            </Modal>
         </Content>
       </React.Fragment>
     );
