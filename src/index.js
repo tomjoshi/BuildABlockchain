@@ -151,10 +151,10 @@ class App extends React.Component {
           <meta property='og:image' content={ScreenShot}/>
         </Helmet>
 
-        <nav style={{}}>
+        <nav style={{position: 'sticky', top:'0', zIndex: '1'}}>
           <div style={{textAlign: 'center', display:'flex', height: '40px', justifyContent: 'center', background: '#16a085'}}>
             <div style={{ overflow: 'hidden', whiteSpace: 'nowrap', padding: '10px' }}>
-              <a style={{color: 'white'}} href="https://www.bonfire.com/build-a-blockchain/"> ORDER THE BUILD-A-BLOCKCHAIN SHIRT HERE</a>
+              <a style={{color: 'white'}} href="https://www.bonfire.com/build-a-blockchain/"> ORDER YOUR BUILD-A-BLOCKCHAIN SHIRT HERE</a>
             </div>
           </div>
         </nav>
